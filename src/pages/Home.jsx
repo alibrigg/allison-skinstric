@@ -9,7 +9,7 @@ const Home = () => {
       <div className="title__container">
         <span className="title__chevrons title__chevrons-left" aria-hidden="true" />
         <span className="title__chevrons title__chevrons-right" aria-hidden="true" />
-        <Link className="subtititle__choice subtititle__choice-left" to="/intro">
+        <Link className="subtititle__choice subtititle__choice-left" to="/">
           <span className="subtitle__button" aria-hidden="true" />
           <span className="subtitle">DISCOVER A.I.</span>
         </Link>

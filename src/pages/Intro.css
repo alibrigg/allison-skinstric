@@ -37,21 +37,51 @@
   height: 100%;
   border: 1px dotted #c5c5c5;
   pointer-events: none;
-  transform: rotate(45deg) scale(0.82);
+  animation: intro-input-diamond-inner-rotate 28s linear infinite;
 }
 
 .intro__diamond-outer {
   opacity: 0.55;
-  transform: rotate(45deg) scale(1.08);
+  animation: intro-input-diamond-outer-rotate 36s linear infinite;
 }
 
 .intro__diamond-middle {
   opacity: 0.8;
-  transform: rotate(45deg) scale(0.96);
+  animation: intro-input-diamond-middle-rotate 32s linear infinite;
 }
 
 .intro__diamond-inner {
   border-color: #aaa;
+}
+
+@keyframes intro-input-diamond-outer-rotate {
+  from {
+    transform: rotate(45deg) scale(1.08);
+  }
+
+  to {
+    transform: rotate(405deg) scale(1.08);
+  }
+}
+
+@keyframes intro-input-diamond-middle-rotate {
+  from {
+    transform: rotate(45deg) scale(0.96);
+  }
+
+  to {
+    transform: rotate(405deg) scale(0.96);
+  }
+}
+
+@keyframes intro-input-diamond-inner-rotate {
+  from {
+    transform: rotate(45deg) scale(0.82);
+  }
+
+  to {
+    transform: rotate(405deg) scale(0.82);
+  }
 }
 
 .intro__title {
@@ -114,6 +144,488 @@
 
 .intro__container--method {
   --method-diamond-size: min(23vw, 280px);
+}
+
+.intro__upload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: min(46vw, 480px);
+  aspect-ratio: 1;
+  place-items: center;
+  transform: translate(-50%, -50%);
+}
+
+.intro__upload-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 75%;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.intro__upload-content h1,
+.intro__upload-content p {
+  margin: 0;
+}
+
+.intro__upload-content h1 {
+  color: #1a1a1a;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 400;
+}
+
+.intro__upload-content > p {
+  color: #777;
+  font-size: 13px;
+}
+
+.intro__file-picker {
+  display: inline-flex;
+  max-width: 100%;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #777;
+  padding: 0 16px;
+  color: #292929;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.intro__file-picker:hover,
+.intro__file-picker:focus-within {
+  border-color: #1a1a1a;
+}
+
+.intro__file-picker span {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.intro__file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.intro__upload-error {
+  color: #9b3b3b;
+  font-size: 10px;
+}
+
+.intro__proceed-upload {
+  opacity: 1;
+  visibility: visible;
+}
+
+.intro__proceed-upload:disabled {
+  opacity: 0.45;
+}
+
+.intro__camera-loading {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  display: grid;
+  width: min(34vw, 360px);
+  aspect-ratio: 1;
+  place-items: center;
+  transform: translate(-50%, -50%);
+}
+
+.intro__camera-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px dotted #c5c5c5;
+  pointer-events: none;
+}
+
+.intro__camera-frame-diamond {
+  opacity: 0.65;
+  animation: intro-camera-frame-diamond 30s linear infinite;
+}
+
+.intro__camera-frame-square {
+  width: 82%;
+  height: 82%;
+  opacity: 0.8;
+  animation: intro-camera-frame-square 30s linear infinite;
+}
+
+.intro__camera-frame-tilted {
+  width: 70%;
+  height: 70%;
+  opacity: 0.55;
+  animation: intro-camera-frame-tilted 38s linear infinite;
+}
+
+@keyframes intro-camera-frame-diamond {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes intro-camera-frame-square {
+  from {
+    transform: rotate(8deg);
+  }
+
+  to {
+    transform: rotate(368deg);
+  }
+}
+
+@keyframes intro-camera-frame-tilted {
+  from {
+    transform: rotate(-12deg);
+  }
+
+  to {
+    transform: rotate(348deg);
+  }
+}
+
+.intro__camera-loading-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.intro__camera-loading-icon {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
+  border-radius: 50%;
+}
+
+.intro__camera-loading-icon img {
+  display: block;
+  width: 100%;
+  height: 125%;
+}
+
+.intro__camera-loading-title {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.intro__camera-tips {
+  position: absolute;
+  top: calc(100% + 22px);
+  left: 50%;
+  width: max-content;
+  max-width: 90vw;
+  color: #333;
+  font-size: 9px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.intro__camera-tips p {
+  margin: 0 0 12px;
+}
+
+.intro__camera-tips ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intro__camera-tips li::before {
+  margin-right: 5px;
+  content: "◇";
+}
+
+.intro-page--camera {
+  background: #000;
+  color: #fff;
+}
+
+.intro-page--camera .header {
+  color: #fff;
+}
+
+.intro-page--camera .page-name {
+  color: #ddd;
+}
+
+.intro-page--camera .intro__back {
+  z-index: 3;
+  color: #fff;
+}
+
+.intro-page--camera .intro__back-icon {
+  border-color: #fff;
+}
+
+.intro-page--camera .intro__back-icon::after {
+  border-right-color: #fff;
+}
+
+.intro__container--camera {
+  position: absolute;
+  inset: 2% 4% 5%;
+  overflow: hidden;
+  background: #333;
+}
+
+.intro__container--camera .intro__instruction {
+  display: none;
+}
+
+.intro__camera-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #333;
+}
+
+.intro__camera-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.intro__face-guide {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  display: grid;
+  width: min(27vw, 340px);
+  height: 64%;
+  place-items: start center;
+  border: 1px dotted rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 9px;
+  padding-top: 6%;
+  text-align: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.intro__face-guide span {
+  text-shadow: 0 1px 4px #333;
+}
+
+.intro__camera-countdown {
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  font-size: 10px;
+  text-shadow: 0 1px 4px #333;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.intro__camera-countdown-number {
+  min-height: 1em;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1;
+}
+
+.intro__camera-tips-live {
+  top: auto;
+  bottom: 5%;
+  color: #fff;
+  text-shadow: 0 1px 4px #333;
+}
+
+.intro__camera-capture {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  padding: 8px 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 9px;
+  text-shadow: 0 1px 4px #333;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.intro__camera-capture-icon {
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+}
+
+.intro__camera-capture-icon::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 12px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.intro__camera-capture-icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.intro__camera-capture:hover .intro__camera-capture-icon,
+.intro__camera-capture:focus-visible .intro__camera-capture-icon {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.intro__camera-capture:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 6px;
+}
+
+.intro__camera-capture:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.intro__camera-capture-error {
+  position: absolute;
+  right: 2%;
+  bottom: 18%;
+  left: 2%;
+  margin: 0;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 0 1px 4px #333;
+}
+
+.intro__camera-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.intro__camera-great-shot {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  margin: 0;
+  color: #fff;
+  font-size: 13px;
+  text-shadow: 0 1px 4px #333;
+  transform: translate(-50%, -50%);
+}
+
+.intro__camera-preview-actions {
+  position: absolute;
+  right: 16px;
+  bottom: 5%;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 46px;
+}
+
+.intro__camera-preview-actions h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 25px;
+  text-shadow: 0 1px 4px #333;
+}
+
+.intro__camera-preview-actions > div {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+.intro__camera-retake,
+.intro__camera-use-photo {
+  min-height: 54px;
+  border: 0;
+  padding: 0 26px;
+  font: inherit;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.intro__camera-retake {
+  background: #f4f4f4;
+  color: #1a1a1a;
+}
+
+.intro__camera-use-photo {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.intro__camera-retake:hover,
+.intro__camera-retake:focus-visible {
+  background: #fff;
+}
+
+.intro__camera-use-photo:hover,
+.intro__camera-use-photo:focus-visible {
+  background: #333;
+}
+
+.intro__camera-retake:focus-visible,
+.intro__camera-use-photo:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.intro__camera-preview-actions .intro__camera-capture-error {
+  right: 0;
+  bottom: calc(100% + 12px);
+  left: 0;
 }
 
 .intro__thanks {
@@ -671,6 +1183,64 @@
   outline: none;
 }
 
+.intro__camera-prompt {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 52%;
+  width: min(238px, calc(100vw - 32px));
+  background: #1b1b1b;
+  color: #fff;
+  transform: translateY(-50%);
+}
+
+.intro__camera-message {
+  min-height: 67px;
+  padding: 12px 10px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.intro__camera-message h2,
+.intro__camera-message p {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.intro__camera-message p {
+  margin-top: 6px;
+  color: #f1b4b4;
+  font-size: 9px;
+}
+
+.intro__camera-actions {
+  display: flex;
+  justify-content: flex-end;
+  height: 24px;
+  border-top: 1px solid #bdbdbd;
+}
+
+.intro__camera-actions button {
+  display: grid;
+  min-width: 54px;
+  place-items: center;
+  border: 0;
+  padding: 0 10px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.intro__camera-actions button:hover,
+.intro__camera-actions button:focus-visible {
+  background: #333;
+  outline: none;
+}
+
 @media (max-width: 600px) {
   .intro__instruction {
     top: 58px;
@@ -683,6 +1253,103 @@
 
   .intro__thanks {
     width: min(68vw, 320px);
+  }
+
+  .intro__camera-loading {
+    top: 43%;
+    width: min(54vw, 260px);
+  }
+
+  .intro__container--camera {
+    inset: 48px 10px 52px;
+  }
+
+  .intro__face-guide {
+    top: 17%;
+    width: min(54vw, 280px);
+    height: 62%;
+    font-size: 7px;
+  }
+
+  .intro__camera-countdown {
+    top: 19%;
+    font-size: 8px;
+  }
+
+  .intro__camera-countdown-number {
+    font-size: clamp(26px, 9vw, 38px);
+  }
+
+  .intro__camera-tips-live {
+    bottom: 3%;
+  }
+
+  .intro__camera-tips-live ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .intro__camera-capture {
+    top: auto;
+    right: 50%;
+    bottom: 12%;
+    flex-direction: column-reverse;
+    gap: 8px;
+    transform: translateX(50%);
+  }
+
+  .intro__camera-capture-error {
+    bottom: 25%;
+    font-size: 9px;
+  }
+
+  .intro__camera-preview-actions {
+    right: 8px;
+    left: 8px;
+    gap: 24px;
+  }
+
+  .intro__camera-preview-actions h2 {
+    font-size: 20px;
+  }
+
+  .intro__camera-preview-actions > div {
+    gap: 12px;
+  }
+
+  .intro__camera-retake,
+  .intro__camera-use-photo {
+    min-height: 46px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  .intro__camera-loading-icon {
+    width: 66px;
+    height: 66px;
+  }
+
+  .intro__camera-tips {
+    top: calc(100% + 18px);
+    font-size: 7px;
+  }
+
+  .intro__camera-tips ul {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .intro__upload {
+    width: min(76vw, 360px);
+  }
+
+  .intro__upload-content {
+    gap: 9px;
+  }
+
+  .intro__upload-content > p {
+    font-size: 11px;
   }
 
   .intro__thanks-message h1 {
@@ -750,6 +1417,12 @@
     left: 12px;
     width: min(291px, calc(100vw - 24px));
   }
+
+  .intro__camera-prompt {
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media (max-width: 999px) {
@@ -759,9 +1432,23 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .intro__diamond {
+    animation: none;
+    transform: rotate(45deg) scale(0.82);
+  }
+
+  .intro__diamond-outer {
+    transform: rotate(45deg) scale(1.08);
+  }
+
+  .intro__diamond-middle {
+    transform: rotate(45deg) scale(0.96);
+  }
+
   .intro__thanks-diamond,
   .intro__thanks-square,
-  .intro__method-diamond {
+  .intro__method-diamond,
+  .intro__camera-frame {
     animation: none;
     rotate: 45deg;
   }
