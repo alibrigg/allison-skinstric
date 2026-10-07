@@ -1,0 +1,35 @@
+.header {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 16px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 24px;
+  font-size: 9px;
+  line-height: 1;
+  text-align: left;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+.page-name {
+  color: #777;
+  letter-spacing: 0.08em;
+}
+
+.code {
+  min-width: 62px;
+  height: 22px;
+  margin-left: auto;
+  border: 0;
+  padding: 0 10px;
+  background: #171717;
+  color: #fff;
+  font-size: 7px;
+  cursor: pointer;
+}
