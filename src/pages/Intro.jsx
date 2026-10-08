@@ -553,7 +553,7 @@ const Intro = () => {
                 id={`intro-${step}`}
                 name={step}
                 type="text"
-                placeholder={step === "name" ? "Introduce Yourself" : "Where are you from?"}
+                placeholder={step === "name" ? "Introduce Yourself" : "Your City Name"}
                 autoComplete={step === "name" ? "name" : "address-level2"}
                 value={answer}
                 aria-invalid={Boolean(errorMessage)}
